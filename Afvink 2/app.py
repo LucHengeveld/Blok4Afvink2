@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from dna_to_protein import translate
+from dna_naar_eiwit import translate
 
 app = Flask(__name__)
 
