@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Afvink 2</title>
+    </head>
+    <body>
+        <p>DNA sequentie:</p>
+            <form action="{{ url_for('index') }}" method="post">
+              <input type="text" name="sequence">
+              <input type="submit">
+            </form>
+        <hr>
+        <p>Eiwit sequentie:</p>
+        <p>{{ proteins }}</p>
+    </body>
+</html>
