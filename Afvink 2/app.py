@@ -1,18 +1,20 @@
-from flask import Flask,render_template,request
+from flask import Flask, render_template, request
 from dna_to_protein import translate
 
 app = Flask(__name__)
 
 @app.route('/')
-@app.route('/protein',methods=["POST", "GET"])
+@app.route('/protein', methods=["POST", "GET"])
 def index():
 
     if request.method == "POST":
-        seq = request.form.get("sequence", "")
+        seq = request.form.get("sequence", "").upper()
         protein = translate(seq)
-        return render_template('webpagina.html', title='Home',proteins=protein)
+        return render_template('webpagina.html', title='Home',
+                               proteins=protein)
     else:
-        return render_template('webpagina.html', title='Home',proteins='')
+        return render_template('webpagina.html', title='Home', proteins='')
+
 
 if __name__ == '__main__':
     app.run()
